@@ -10,10 +10,11 @@ To find text that ends with another text: `builder.Where(p => p.Name.EndsWith("J
 To extract a substring of length `count` from the index `from`.
 `builder.Select(p => pName.SubString(0, 3));`
 * `DbFunctions.Sum(param)` - `SUM(param)`  
-To show sums in the groupings: `builder.Select(p => DbFunctions.Sum(p.Amount))`
+To show sums in the groupings: 
+* `builder.Select(p => DbFunctions.Sum(p.Amount))`
 * `DbFunctions.Sum(param)` - `COUNT(param)`
 * `DbFunctions.Max(param)` - `MAX(param)`
 * `DbFunctions.Min(param)` - `MIN(param)`
 
 
-To support new functions see the section [Extensibilidad](./extensibility-es.md)
+To support new functions see the section [Extensibilidad](./extensibility-en.md)

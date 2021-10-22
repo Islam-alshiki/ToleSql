@@ -75,14 +75,14 @@ builder.Select<DeliveryNote, Supplier>((dn, s) => new
     });
 ````
 
-In the columns we can use functions ([Funciones SQL](./functions-es.md)):
+In the columns we can use functions ([Funciones SQL](./functions-en.md)):
 
 ```` csharp
 builder.Select<Supplier>(s => new { SupplierName == s.Name.SubString(0, 10)});
 builder.Select<DeliveryNoteDetail>(s => new { TotalLineas == DbFunctions.Count(s.Id)});
 ````
 
-> DbFunctions is a static class with database functions, the number of functions can be extended ([Extensibilidad](./extensibility-es.md)).
+> DbFunctions is a static class with database functions, the number of functions can be extended ([Extensibilidad](./extensibility-en.md)).
 
 ### Filtering by fields
 
