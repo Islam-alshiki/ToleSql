@@ -6,7 +6,7 @@ ToleSql uses an [ExpressionVisitor](https://msdn.microsoft.com/en-us/library/bb8
 
 The following expression used in the call to the `Select` method causes the interceptors to be called:
 
-``` csharp
+```csharp
 builder.Select<Invoice>(i => new { 
     Supplier = i.SupplierId, 
     MaxAmount = DbFunctions.Max(i.TotalAmount) 
@@ -24,7 +24,7 @@ Ultimately it is to translate `DbFunctions.Max (i.TotalAmount)` into `MAX ([T0].
 
 Here is the interceptor used for the SQL `MAX` function. When ToleSql encounters the call to the `DbFunctions.Max` method, it calls the interceptors until one of them returns other than null.
 
-```` csharp
+````csharp
 public class DbFunctionsMax : MethodCallInterceptorBase
 {
     public override bool Intercept(MethodCallExpression m, 

@@ -6,7 +6,7 @@ Sometimes the database tables are not called like the classes of our objects, th
 
 For this we can do this:
 
-```` csharp
+````csharp
 Modeling.Model<Supplier>().SetSchema("WH");
 Modeling.Model<DeliveryNote>().SetSchema("WH");
 Modeling.Model<DeliveryNoteDetail>().SetSchema("WH");
@@ -23,7 +23,7 @@ This would set the values globally. Whenever the `Supplier` type is resolved, th
 
 We can also establish a default schema for all tables that do not have an associated schema:
 
-```` csharp
+````csharp
 Modeling.DefaultSchema = "dbo";
 ````
 
@@ -35,7 +35,7 @@ First, a type is translated into a table using the name of the type and without 
 Here are some tests that prove it.
 
 Default scheme:
-```` csharp
+````csharp
 Modeling.DefaultSchema = "KKK";
 var b = new SelectBuilder();
 b.From<Supplier>();
@@ -46,7 +46,7 @@ Assert.Equal(spec, gen);
 ````
 
 Default schema + global modeling:
-```` csharp
+````csharp
 Modeling.DefaultSchema = "KKK";
 Modeling.Model<Supplier>().SetSchema("CUS").SetTable("CUSTOMER");
 var b = new SelectBuilder();
@@ -58,7 +58,7 @@ Assert.Equal(spec, gen);
 ````
 
 Default schema + global modeling + builder modeling:
-```` csharp
+````csharp
 Modeling.ResetModeling();
 Modeling.DefaultSchema = "KKK";
 Modeling.Model<Supplier>().SetSchema("CUS").SetTable("CUSTOMER");
